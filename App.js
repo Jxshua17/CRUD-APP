@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 
 const app = express();
 
@@ -7,7 +7,20 @@ app.get("/", (request, response) => {
   response.send(`the students in this class are ${students}`);
 });
 
-app.post("/");
+app.post("/addStudent", (request, response) => {
+  //i am trying a different approach because what i am getting has some kind of error which is funny. so try creating an object and then assigning the body to it.
+  let studentSchema = {
+    name: "",
+    age: "",
+    class: "",
+  };
+  //const { name, age, class } = request.body;
+  studentSchema = request.body;
+
+  let student = studentSchema;
+
+  return response.status(200).send("the student has been added successfully.");
+});
 
 app.listen(8080, () => {
   console.log("the current port should be localhost:8080");
