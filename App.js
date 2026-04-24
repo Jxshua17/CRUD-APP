@@ -17,9 +17,15 @@ app.post("/addStudent", (request, response) => {
   //const { name, age, class } = request.body;
   studentSchema = request.body;
 
-  let student = studentSchema;
-
+  students = studentSchema;
+  console.log(students);
   return response.status(200).send("the student has been added successfully.");
+});
+
+app.get("/getStudents", (request, response) => {
+  return response
+    .status(200)
+    .send("there are students but you can't get them here.");
 });
 
 app.listen(8080, () => {
