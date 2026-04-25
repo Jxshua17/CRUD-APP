@@ -33,3 +33,6 @@ for (let i = 0; i < students.length; i++) {
 
 console.log(students);
 console.log(students[2]);
+
+students[2] = "generatorShreax";
+console.log(students[2]);
