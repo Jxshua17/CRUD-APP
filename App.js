@@ -14,6 +14,7 @@ app.get("/", (request, response) => {
 app.post("/addStudent", (request, response) => {
   //i am trying a different approach because what i am getting has some kind of error which is funny. so try creating an object and then assigning the body to it.
   let studentSchema = {
+    id: "",
     name: "",
     age: "",
     form: "",
@@ -33,6 +34,40 @@ app.post("/addStudent", (request, response) => {
 //i don't even know where to go from where.
 app.get("/getStudents", (request, response) => {
   return response.status(200).send(students);
+});
+
+app.get("/getStudents/:id", (req, res) => {
+  //TODO -> fix issue.
+  let id = req.params.id;
+
+  /*for (let i = 0; i < students.length; i++) {
+    console.log(id);
+    console.log(students[0].id);
+
+    //i was getting an error here because i was using the strict equality(===) which checks both the value and the type instead of loose equality(==) which checks just the value.
+    // the error i am getting now is the fact that shit only , that is the loop, only runs once.
+    if (id == students[i].id) {
+      console.log("the student id is " + students[i].id);
+      return res.status(200).send(students[i]);
+      //break; stupid me forgot that you can use a brak statement after a return. nothing comes after a return.
+    } else {
+      return res.status(404).send("this student is not in the database.");
+    }
+    }*/
+
+  let studentFound = false;
+  let i = 0;
+  while (i != students.length) {
+    if (id == students[i].id) {
+      studentFound = true;
+      return res.status(200).send(students[i]);
+    }
+    i++;
+  }
+
+  if (studentFound == false) {
+    return res.status(404).send("this nigga isn't in the database");
+  }
 });
 
 app.listen(8080, () => {
