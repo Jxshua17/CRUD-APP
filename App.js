@@ -55,19 +55,15 @@ app.get("/getStudents/:id", (req, res) => {
     }
     }*/
 
-  let studentFound = false;
   let i = 0;
   while (i != students.length) {
     if (id == students[i].id) {
-      studentFound = true;
       return res.status(200).send(students[i]);
     }
     i++;
   }
 
-  if (studentFound == false) {
-    return res.status(404).send("this nigga isn't in the database");
-  }
+  return res.status(404).send("this nigga isn't in the database");
 });
 
 app.listen(8080, () => {
