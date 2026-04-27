@@ -31,8 +31,17 @@ for (let i = 0; i < students.length; i++) {
   }
 }
 
-console.log(students);
+console.log("the students are " + students);
 console.log(students[2]);
 
 students[2] = "generatorShreax";
 console.log(students[2]);
+
+let stud1 = students[1];
+console.log(stud1);
+
+//students.pop();
+//i didn't have a clear understanding of what pop did which is why i kept on passing an argument but i have read d documntation and it is for removing the last element in an array.
+//so i have to look for the peoper method that removes an element based on position or element.
+students.splice(1, 1);
+console.log("the students now are " + students);

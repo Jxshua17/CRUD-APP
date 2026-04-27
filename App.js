@@ -95,6 +95,21 @@ app.put("/updateStudentInfo/:id", (req, res) => {
     );
 });
 
+app.delete("/deleteStudent/:id", (req, res) => {
+  let id = req.params.id;
+
+  let i = 0;
+  while (i != students.length) {
+    if (id == students[i].id) {
+      students.splice(i, 1);
+      return res.status(200).send("the student has been deleted.");
+    }
+    i++;
+  }
+
+  return res.status(404).send("this nigga isn't in the database");
+});
+
 app.listen(8080, () => {
   console.log("the current port should be localhost:8080");
 });
