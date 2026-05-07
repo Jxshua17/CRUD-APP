@@ -2,7 +2,10 @@ import express, { response } from "express";
 
 //app.use(express());
 const app = express();
-app.use(express.json()); //this was the solution to my problem.
+//ln1 to 4 can also be written as
+// const app = require("express");
+//app.whateverMethod();
+app.use(express.json()); //this was the solution to my problem.it is called middleware.
 
 let students = [];
 
