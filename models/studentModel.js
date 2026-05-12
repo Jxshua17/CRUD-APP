@@ -7,4 +7,4 @@ const studentSchema = new mongoose.Schema({
   form: { type: Number, required: true },
 });
 
-module.exports = mongoose.Model("Student", studentSchema);
+module.exports = mongoose.model("Student", studentSchema);
