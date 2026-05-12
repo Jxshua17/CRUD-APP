@@ -23,3 +23,8 @@ exports.addStudent = async (req, res) => {
     console.error(err.message);
   }
 };
+
+exports.getStudents = async (req, res) => {
+  const students = await student1.find();
+  res.status(200).json(students);
+};
