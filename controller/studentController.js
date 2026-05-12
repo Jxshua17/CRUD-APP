@@ -4,16 +4,13 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
+exports.home = (req, res) => {
+  //i am not speaking with databaseo there is  no need for using async()
+  res.status(200).send("Hello and welcome to my website.");
+};
+
 exports.addStudent = async (req, res) => {
   try {
-    //  let studentSchema = {
-    //  id: "",
-    //name: "",
-    //age: "",
-    //form: "",
-    //};
-
-    //studentSchema = req.body;
     console.log(req.body);
     await student1.create(req.body);
     return res

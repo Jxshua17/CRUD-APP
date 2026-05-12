@@ -11,11 +11,6 @@ const app = express();
 app.use(express.json()); //this was the solution to my problem.it is called middleware.
 connectDB();
 
-app.get("/", (request, response) => {
-  //response.send("Hello and welcome to my website.");
-  response.send(`the students in this class are ${students}`);
-});
-
 app.use("/api", studentRoute);
 
 app.listen(process.env.PORT, () => {
