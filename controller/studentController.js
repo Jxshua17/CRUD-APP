@@ -1,4 +1,5 @@
 const student1 = require("../models/studentModel");
+const service = require("../services/studentService");
 
 const express = require("express");
 const app = express();
@@ -6,7 +7,8 @@ app.use(express.json());
 
 exports.home = (req, res) => {
   //i am not speaking with databaseo there is  no need for using async()
-  res.status(200).send("Hello and welcome to my website.");
+  const message = service.displayHomepage();
+  res.status(200).send(message);
 };
 
 exports.addStudent = async (req, res) => {
