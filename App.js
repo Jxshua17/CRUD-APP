@@ -19,35 +19,6 @@ app.get("/", (request, response) => {
 
 app.use("/api", studentRoute);
 
-app.put("/updateStudentInfo/:id", (req, res) => {
-  let id = req.params.id;
-  let studentSchema = {
-    id: "",
-    name: "",
-    age: "",
-    form: "",
-  };
-
-  studentSchema = req.body;
-
-  let i = 0;
-  while (i != students.length) {
-    if (id == students[i].id) {
-      students[i] = studentSchema;
-      return res
-        .status(200)
-        .send("the record of this student has been updated.");
-    }
-    i++;
-  }
-
-  return res
-    .status(404)
-    .send(
-      "record couldn't be updated because the student with that id isn't in the database.",
-    );
-});
-
 app.delete("/deleteStudent/:id", (req, res) => {
   let id = req.params.id;
 

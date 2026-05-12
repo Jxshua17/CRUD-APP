@@ -38,3 +38,9 @@ exports.getStudent = async (req, res) => {
     res.status(400).send("This nigga isn't in the database.");
   }
 };
+
+exports.updateStudent = async (req, res) => {
+  let id = req.params.id;
+  const stud = await student1.findByIdAndUpdate(id, req.body);
+  res.status(200).send(`student updated ${stud}`);
+};
