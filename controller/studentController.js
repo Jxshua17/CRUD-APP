@@ -28,3 +28,13 @@ exports.getStudents = async (req, res) => {
   const students = await student1.find();
   res.status(200).json(students);
 };
+
+exports.getStudent = async (req, res) => {
+  let id = req.params.id;
+  const student0 = await student1.findById(id);
+  if (student0) {
+    res.status(200).json(student0);
+  } else {
+    res.status(400).send("This nigga isn't in the database.");
+  }
+};
