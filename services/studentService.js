@@ -19,3 +19,12 @@ exports.addStudentToDB = async (stud, response) => {
     console.error(err.message);
   }
 };
+
+exports.getStudentById = async (req, res) => {
+  const student0 = await student9.findOne({ id: req.params.id });
+  if (student0) {
+    res.status(200).json(student0);
+  } else {
+    res.status(400).send("This nigga isn't in the database.");
+  }
+};

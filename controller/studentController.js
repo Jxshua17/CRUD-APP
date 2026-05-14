@@ -22,13 +22,7 @@ exports.getStudents = async (req, res) => {
 };
 
 exports.getStudent = async (req, res) => {
-  let id = req.params.id;
-  const student0 = await student1.findOne({ id: req.params.id });
-  if (student0) {
-    res.status(200).json(student0);
-  } else {
-    res.status(400).send("This nigga isn't in the database.");
-  }
+  service.getStudentById(req, res);
 };
 
 exports.updateStudent = async (req, res) => {
