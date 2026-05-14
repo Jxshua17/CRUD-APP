@@ -20,6 +20,11 @@ exports.addStudentToDB = async (stud, response) => {
   }
 };
 
+exports.getAllStudents = async (res) => {
+  const students = await student9.find();
+  res.status(200).json(students);
+};
+
 exports.getStudentById = async (req, res) => {
   const student0 = await student9.findOne({ id: req.params.id });
   if (student0) {

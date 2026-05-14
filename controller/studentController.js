@@ -17,8 +17,7 @@ exports.addStudent = (req, res) => {
 };
 
 exports.getStudents = async (req, res) => {
-  const students = await student1.find();
-  res.status(200).json(students);
+  service.getAllStudents(res);
 };
 
 exports.getStudent = async (req, res) => {
