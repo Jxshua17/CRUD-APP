@@ -39,3 +39,11 @@ exports.findAndUpdateStudent = async (req, res) => {
   const stud = await student9.findByIdAndUpdate(id, req.body);
   res.status(200).json({ message: "the student has been updated", data: stud });
 };
+
+exports.findAndDeleteStudent = async (req, res) => {
+  let id = req.params.id;
+  await student9.findByIdAndDelete(id);
+  res
+    .status(200)
+    .send(`the student with the following id ${id} has been deleted`);
+};

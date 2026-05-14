@@ -30,9 +30,5 @@ exports.updateStudent = async (req, res) => {
 };
 
 exports.deleteStudent = async (req, res) => {
-  let id = req.params.id;
-  await student1.findByIdAndDelete(id);
-  res
-    .status(200)
-    .send(`the student with the following id ${id} has been deleted`);
+  service.findAndDeleteStudent(req, res);
 };
