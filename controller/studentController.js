@@ -16,6 +16,7 @@ exports.addStudent = (req, res) => {
   service.addStudentToDB(req.body, res);
 };
 
+//TODO -> remove unnecessary async keywords.
 exports.getStudents = async (req, res) => {
   service.getAllStudents(res);
 };
@@ -25,9 +26,7 @@ exports.getStudent = async (req, res) => {
 };
 
 exports.updateStudent = async (req, res) => {
-  let id = req.params.id;
-  const stud = await student1.findByIdAndUpdate(id, req.body);
-  res.status(200).send(`student updated ${stud}`);
+  service.findAndUpdateStudent(req, res);
 };
 
 exports.deleteStudent = async (req, res) => {
